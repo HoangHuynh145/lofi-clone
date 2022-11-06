@@ -1,0 +1,21 @@
+.mobile {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #8aaff3;
+    gap: 1rem;
+
+    .img-update{
+        width: 80vw;
+        height: 60vw;
+    }
+
+    h2 {
+        font-size: 5vw;
+        font-weight: 600;
+    }
+}

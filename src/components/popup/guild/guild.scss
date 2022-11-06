@@ -1,0 +1,191 @@
+@import '../../../access/styles/mixin';
+@import '../../../access/styles/variables';
+
+.guild-container {
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3rem);
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include animate(fade, .5s, linear);
+
+    .close-icon {
+        position: absolute;
+        top: 2.2em;
+        right: 2.2rem;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    }
+
+    .main-guild-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        padding-top: 2%;
+
+        .guild-slider {
+            position: relative;
+            width: 35rem;
+            height: 42rem;
+            overflow: hidden;
+
+            .guild-slides {
+                position: absolute;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1rem;
+                flex: 1;
+                transition: left .5s ease;
+
+                .slide {
+                    width: 35rem;
+                    height: 35rem;
+                    background: transparent;
+                    border-radius: 2rem;
+                    overflow: hidden;
+
+                    &.first {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 8rem;
+                    }
+
+                    .guild-slide-video {
+                        object-fit: cover;
+                        object-position: center;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .navigation {
+                position: absolute;
+                bottom: 0;
+                display: flex;
+                gap: .6rem;
+                left: 50%;
+                margin-bottom: 1.4rem;
+                transform: translateX(-50%);
+
+                .nav-btn {
+                    width: 0.8rem;
+                    height: 0.3rem;
+                    background: #fff;
+                    border-radius: .5rem;
+                    cursor: pointer;
+                    opacity: 0.5;
+
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .content-animate {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+
+            .text {
+                color: $--color-primary;
+                font-size: 3.6rem;
+                font-weight: 600;
+                white-space: nowrap;
+                margin-bottom: 0;
+                line-height: 1;
+                text-align: center;
+
+                &.static-text {
+                    display: block;
+                }
+            }
+
+            .fake-cursor {
+                width: .3rem;
+                height: 3rem;
+                background: $--color-primary;
+                opacity: 1;
+                margin-left: .3rem;
+                animation: caret 1.5s steps(1) infinite;
+            }
+
+        }
+
+        .sub-title-list {
+            font-size: 1.4rem;
+            color: #fff;
+            max-width: 45rem;
+            flex-grow: .4;
+
+            &.no-grow {
+                flex-grow: 0;
+            }
+
+            .first-sub-title {
+                margin: 1.6rem 0;
+            }
+        }
+
+        .control-guild {
+            display: flex;
+            margin-top: 0.5rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+
+            .btn-control {
+                font-size: 1.6rem;
+                padding: .6rem 1.6rem;
+                background-color: $--color-primary;
+                border-radius: 3rem;
+                color: #000;
+                font-weight: 600;
+                min-width: 12rem;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.6;
+                    transition: opacity 0.3s linear;
+                }
+            }
+
+            .out-guild {
+                font-size: 1.3rem;
+                opacity: 0.5;
+                color: #fff;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@keyframes caret {
+    50% {
+        opacity: 0;
+    }
+}
+
+@include keyframes (fade) {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

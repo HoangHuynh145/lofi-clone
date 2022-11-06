@@ -1,0 +1,185 @@
+@import '../../../access/styles/variables';
+@import '../../../access/styles/mixin';
+
+.auth-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: relative;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    @include animate(fade, .5s, ease-in-out);
+
+    .auth-popup-close {
+        position: absolute;
+        top: 3rem;
+        right: 2rem;
+
+        &:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    }
+
+    .Toastify__toast-container--top-right {
+        top: 7rem;
+        right: 2rem;
+    }
+
+    .auth-main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include animate(fade, 1s, ease-in-out);
+
+        .brand-logo {
+            &.signup {
+                margin: 0;
+            }
+
+            margin: 3.2rem 0;
+            width: 23.1rem;
+            height: 13rem;
+        }
+
+        .auth-title {
+            margin: 1.6rem 0;
+            color: #fff;
+            font-size: 4.6rem;
+            font-weight: bolder;
+            line-height: 4.6rem;
+        }
+
+        .auth-sub-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .auth-input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .auth-card {
+                margin: 3.2rem 0;
+                width: 40rem;
+                border-radius: 0.8rem;
+                overflow: hidden;
+                position: relative;
+
+                .fake-border {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 6rem;
+                    width: .4rem;
+                    background-color: $--color-primary;
+                    transition: top .3s linear;
+                    opacity: 0;
+
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+
+                .input-item {
+                    display: block;
+                    padding: .4rem 1.6rem;
+                    font-size: 1.6rem;
+                    height: 6rem;
+                    width: 100%;
+                    background-color: rgba(19, 19, 19, 0.95);
+                    caret-color: $--color-primary;
+                    border-left: .3rem solid transparent;
+
+                    &.Error {
+                        border-left-color: #ff623d;
+                    }
+
+                    &.Warning {
+                        border-left-color: #ffc021;
+                    }
+
+                    &::placeholder {
+                        opacity: 0.8;
+                        font-size: 1.7rem;
+                        font-weight: 500;
+                    }
+                }
+
+                .input-password-wrapper {
+                    position: relative;
+
+                    .eye-icon {
+                        width: 1.6rem;
+                        height: 1.6rem;
+                        position: absolute;
+                        right: 3.2rem;
+                        top: 2.4rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .auth-btn {
+                margin: 1.6rem;
+                padding: .6rem 1.6rem;
+                font-size: 1.6rem;
+                color: rgba(0, 0, 0, .8);
+                border-radius: 5rem;
+                min-width: 12rem;
+                background-color: $--color-primary;
+                font-weight: 600;
+
+                &:hover {
+                    opacity: 0.6;
+                    cursor: pointer;
+                }
+            }
+
+            .fogot-password {
+                font-size: 1.6rem;
+                color: $--color-primary;
+                font-weight: 500;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #40a9ff;
+                }
+            }
+
+            .policies {
+                text-align: center;
+                font-size: 1.2rem;
+
+                span {
+                    display: block;
+                    color: $--color-primary;
+                }
+            }
+        }
+
+        .auth-navigate {
+            margin: 3.2rem 0;
+            font-size: 1.6rem;
+            font-weight: 500;
+
+            span {
+                color: $--color-primary;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@include keyframes (fade) {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

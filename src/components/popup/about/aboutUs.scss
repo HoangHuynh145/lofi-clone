@@ -1,0 +1,107 @@
+.about-us-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3.2rem;
+    z-index: 99999;
+    text-align: center;
+    animation: fade .5s linear;
+
+    .close-icon {
+        position: absolute;
+        top: 2.2rem;
+        right: 2.2rem;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    }
+
+    .introduce {
+        color: #fff;
+        font-size: 1.6rem;
+        width: 60%;
+
+        .intro-header {
+            color: #fff;
+            margin: 3.2rem 0;
+            font-size: 4.6rem;
+            font-weight: 700;
+        }
+
+    }
+
+    .social-wrapper {
+        margin: 6.4rem 0;
+        display: flex;
+        align-items: center;
+
+        .social-item {
+            font-size: 1.6rem;
+            padding: 1.6rem 3.2rem;
+            font-size: 2rem;
+            font-weight: 700;
+            background-color: #352828;
+            border-radius: .8rem;
+            display: flex;
+            align-items: center;
+            margin: 1.6rem;
+            color: #fff;
+            transition: all .2s ease-in-out;
+
+            span {
+                margin: 0 1.6rem;
+                line-height: 1;
+            }
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.7;
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .policies-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .policies-content {
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: 700;
+            width: 20rem;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.5;
+            }
+        }
+
+        .fake-line {
+            width: 0.1rem;
+            height: 2rem;
+            background-color: rgb(199, 199, 199);
+            margin: 0 1.6rem;
+        }
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
