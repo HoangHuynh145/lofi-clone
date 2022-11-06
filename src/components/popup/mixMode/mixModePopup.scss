@@ -9,12 +9,9 @@
     position: absolute;
     justify-content: center;
     align-items: center;
-    display: none;
     z-index: 55;
+    display: flex;
 
-    &.active {
-        display: flex;
-    }
 
     .popup-content {
         width: 35rem;

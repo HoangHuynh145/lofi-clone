@@ -1,5 +1,5 @@
 // Main
-import { useContext, useRef, useEffect } from 'react'
+import { useContext, useRef, useEffect, useState } from 'react'
 
 // Icon
 import logo from '../../access/svg/logo.svg'
@@ -24,8 +24,10 @@ const Mixer = () => {
     const audioSetting = useContext(AudioContext)
     const sceneSetting = useContext(ScenesContext)
     const popupState = useContext(PopupContext)
+    const [isOpenMoreTools, setIsOpenMoreTools] = useState(false)
     const volumeRef = useRef()
     const envAudioRef = useRef()
+
 
     const checkIsDisabled = (sound) => {
         const isFounded = sound[sceneSetting.location].includes(sceneSetting.place)
@@ -224,6 +226,10 @@ const Mixer = () => {
         envAudioRef.current.scrollTo(0, 0)
     }, [popupState.isMixMode])
 
+    useEffect(() => {
+        popupState.setIsMixMode(isOpenMoreTools)
+    }, [isOpenMoreTools])
+
     return (
         <div className='mixer-banner'>
             <div className='mixer-banner-mood'>
@@ -284,7 +290,7 @@ const Mixer = () => {
                 </div>
                 <div
                     ref={envAudioRef}
-                    className={`env-audio-container ${popupState.isMixMode ? 'active' : ''}`}
+                    className={`env-audio-container ${isOpenMoreTools ? 'active' : ''}`}
                 >
                     {envSounds.map(sound => (
                         sound.places.includes(sceneSetting.place) && (
@@ -318,7 +324,7 @@ const Mixer = () => {
                             </div>
                         )
                     ))}
-                    {popupState.isMixMode && (
+                    {isOpenMoreTools && (
                         <div className='premium-env-audio'>
                             {envSounds.map(sound => (
                                 !sound.places.includes(sceneSetting.place) && (
@@ -349,8 +355,8 @@ const Mixer = () => {
                     )}
                 </div>
             </div>
-            <div className='mixer-banner-mix-mode' onClick={() => popupState.setIsMixMode(!popupState.isMixMode)}>
-                <span>{popupState.isMixMode ? 'Normal Mode' : 'Mix Mode'}</span>
+            <div className='mixer-banner-mix-mode' onClick={() => setIsOpenMoreTools(!isOpenMoreTools)}>
+                <span>{isOpenMoreTools ? 'Normal Mode' : 'Mix Mode'}</span>
             </div>
         </div >
     )

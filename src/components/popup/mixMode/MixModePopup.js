@@ -1,5 +1,5 @@
 //Main
-import { useContext, useRef, useState } from 'react'
+import { useContext, useState } from 'react'
 import './mixModePopup.scss'
 
 // Icon
@@ -16,19 +16,17 @@ import { PopupContext } from '../../../context/PopupContext'
 const MixModePopup = () => {
     const popupState = useContext(PopupContext)
     const [isCheck, setIsCheck] = useState(false)
-    const mixPopupRef = useRef()
 
     const handleClosePopup = () => {
-        if(isCheck) {
+        if (isCheck) {
             popupState.setIsRemovePopup(true)
         }
-        mixPopupRef.current.classList.remove('active')
+        popupState.setIsMixMode(false)
     }
 
     return (
         <div
-            ref={mixPopupRef}
-            className={`popup-mix-mode ${popupState.isMixMode && !popupState.isRemovePopup ? 'active' : ''}`}
+            className='popup-mix-mode'
         >
             <div className="popup-content">
                 <img
